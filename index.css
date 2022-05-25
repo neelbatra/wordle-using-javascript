@@ -1,67 +1,65 @@
-body{
-    font-family: 'Gill Sans','Gill Sans Mt','Calibri','Trebuchet MS','sans-serif';
-    text-align: center;
-    background: linear-gradient(120deg, #33b7ce 50%, #218ed6 50%);
+html,
+body {
+    background: var(--default);
 }
 
-hr{
-    width: 500px;
+:root {
+    --default: #121213;
+    --empty: #3a3a3c;
+    --wrong: #b59f3b;
+    --right: #538d4e;
 }
-#title{
-    font-size: 36px;
-    font-weight: bold;
-    letter-spacing: 2px;
+
+#game {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 600px;
 }
-#board{
-    width: 350px;
-    height: 450px;
-    margin: 0 auto;
-    margin-top: 3px;
-    display: flex;
-    flex-wrap: wrap;
+
+.grid {
+    display: grid;
+    grid-template-rows: repeat(6, auto);
+    grid-template-columns: repeat(5, auto);
 }
-/*in js file*/
-.tile{
-    /*BOX*/
-    border: 2px solid rgb(19,18,18);
+
+.box {
     width: 60px;
     height: 60px;
-    margin: 2.5px;
-    /*TEXT*/
-    color: black;
-    font-size: 36px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.keyboard-row{
-    width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-}
-.key-tile{
-    width: 36px;
-    height: 40px;
-    margin: 1px;
-    border: 1px solid rgb(12, 12, 12);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: 2px solid var(--empty);
+    margin: 4px;
+    color: white;
+    text-transform: uppercase;
+    display: grid;
+    place-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.4rem;
 }
 
-.enter-key{
-    width: 76px;
-    height: 40px;
-    margin: 1px;
-    border: 1px solid rgb(0, 0, 0);
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.box.empty {
+    background: var(--empty);
+}
+
+.box.wrong {
+    background: var(--wrong);
+}
+
+.box.right {
+    background: var(--right);
+}
+
+.animated {
+    animation: flip 0.5s ease;
+}
+
+@keyframes flip {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
 }
